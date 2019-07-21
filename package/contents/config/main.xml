@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0 http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+	<kcfgfile name=""/>
+
+	<group name="General">
+		<entry name="icon" type="String">
+			<label>The name of the icon used in the compact representation (e.g. on a small panel).</label>
+			<default>start-here-kde</default>
+		</entry>
+		<entry name="fixedPanelIcon" type="bool">
+			<default>true</default>
+		</entry>
+		<entry name="searchResultsMerged" type="bool">
+			<default>true</default>
+		</entry>
+		<entry name="searchResultsCustomSort" type="bool">
+			<default>false</default>
+		</entry>
+		<entry name="searchResultsReversed" type="bool">
+			<default>false</default>
+		</entry>
+		<entry name="showRecentApps" type="bool">
+			<label>Whether to show the "Recent Applications" category.</label>
+			<default>true</default>
+		</entry>
+		<entry name="recentOrdering" type="int">
+			<label>How should the previously used apps/docs/contacts be ordered: 0 = RecentFirst, 1 = PopularFirst</label>
+			<default>1</default>
+		</entry>
+		<entry name="numRecentApps" type="int">
+			<default>5</default>
+		</entry>
+		<entry name="sidebarShortcuts" type="StringList">
+			<label>Same as favoriteApps except "xdg:DOCUMENTS", etc are constants to ~/Documents.</label>
+			<default>xdg:DOCUMENTS,xdg:PICTURES,org.kde.dolphin.desktop,systemsettings.desktop</default>
+		</entry>
+		<entry name="defaultAppListView" type="string">
+			<!-- enum: Alphabetical, Categories, JumpToLetter, JumpToCategory -->
+			<default>Alphabetical</default>
+		</entry>
+
+		<!-- Style -->
+		<entry name="appListWidth" type="int">
+			<default>300</default>
+		</entry>
+		<entry name="popupHeight" type="int">
+			<default>620</default>
+		</entry>
+	</group>
+
+</kcfg>
+

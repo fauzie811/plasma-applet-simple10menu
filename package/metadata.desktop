@@ -1,0 +1,21 @@
+[Desktop Entry]
+Name=Simple 10 Menu
+Comment=Windows 10 style start menu, but without the tiles.
+
+Type=Service
+Icon=start-here-kde
+X-KDE-ServiceTypes=Plasma/Applet
+
+X-Plasma-API=declarativeappletscript
+X-Plasma-MainScript=ui/Main.qml
+
+X-KDE-PluginInfo-Author=Fauzie Rofi
+X-KDE-PluginInfo-Email=fauzie.rofi@gmail.com
+X-KDE-PluginInfo-Name=com.github.fauzie811.simple10menu
+X-KDE-PluginInfo-Version=1
+X-KDE-PluginInfo-Website=https://github.com/fauzie/plasma-applet-simple10menu
+#X-KDE-PluginInfo-KdeStoreId=1160672
+X-KDE-PluginInfo-Category=Application Launchers
+X-KDE-PluginInfo-Depends=
+
+X-Plasma-Provides=org.kde.plasma.launchermenu
