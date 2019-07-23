@@ -11,28 +11,6 @@ import QtQuick.Controls.Styles.Plasma 2.0 as PlasmaStyles
 TextField {
 	id: searchField
 	placeholderText: i18n("Search")
-	property int topMargin: 0
-	property int bottomMargin: 0
-
-	style: plasmaStyle
-	Component {
-		id: plasmaStyle
-		// Creates the following warning when not in use:
-		//   file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Controls/Styles/Plasma/TextFieldStyle.qml:74: ReferenceError: textField is not defined
-		// Caused by:
-		//   var actionIconSize = Math.max(textField.height * 0.8, units.iconSizes.small);
-		PlasmaStyles.TextFieldStyle {
-			id: style
-			Component.onCompleted: {
-				searchField.topMargin = Qt.binding(function() {
-					return style.padding.top
-				})
-				searchField.bottomMargin = Qt.binding(function() {
-					return style.padding.bottom
-				})
-			}
-		}
-	}
 
 	onTextChanged: {
 		search.query = text

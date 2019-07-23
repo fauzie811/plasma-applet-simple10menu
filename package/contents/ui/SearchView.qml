@@ -176,11 +176,14 @@ Item {
 
 	SearchField {
 		id: searchField
-		// width: 430
-		height: config.searchFieldHeight
+		height: text ? config.searchFieldHeight : 0
 		anchors.left: parent.left
 		anchors.right: parent.right
+		opacity: text ? 1 : 0
 
 		listView: stackView.currentItem && stackView.currentItem.listView ? stackView.currentItem.listView : []
+
+		Behavior on height { NumberAnimation { duration: 100 } }
+		Behavior on opacity { NumberAnimation { duration: 100 } }
 	}
 }
