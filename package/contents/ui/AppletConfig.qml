@@ -35,7 +35,6 @@ Item {
 	readonly property color flatButtonBgHoverColor: Qt.rgba(themeButtonBgColor.r, themeButtonBgColor.g, themeButtonBgColor.b, 0.5)
 	readonly property color flatButtonBgColor: Qt.rgba(flatButtonBgHoverColor.r, flatButtonBgHoverColor.g, flatButtonBgHoverColor.b, 0)
 	readonly property color flatButtonBgPressedColor: theme.highlightColor
-	readonly property color flatButtonCheckedColor: theme.highlightColor
 
 	property var tileColors: {
         "brave-fiombgjlkfpdpkbhfioofeeinbehmajg-Default.desktop": "#103f91",

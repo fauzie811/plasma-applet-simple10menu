@@ -21,11 +21,6 @@ PlasmaComponents.ToolButton {
 	property color backgroundColor: config.flatButtonBgColor
 	property color backgroundHoverColor: config.flatButtonBgHoverColor
 	property color backgroundPressedColor: config.flatButtonBgPressedColor
-	property color checkedColor: config.flatButtonCheckedColor
-
-	// http://doc.qt.io/qt-5/qt.html#Edge-enum
-	property int checkedEdge: 0 // 0 = all edges
-	property int checkedEdgeWidth: 2 * units.devicePixelRatio
 
 	style: PlasmaStyles.ToolButtonStyle {
 		label: RowLayout {
@@ -88,60 +83,6 @@ PlasmaComponents.ToolButton {
 				imagePath: "widgets/viewitem"
 				prefix: "selected"
 				visible: control.pressed
-			}
-
-			Rectangle {
-				id: checkedOutline
-				color: flatButton.checkedColor
-				visible: control.checked
-				anchors.left: parent.left
-				anchors.top: parent.top
-				anchors.right: parent.right
-				anchors.bottom: parent.bottom
-
-				states: [
-					State {
-						when: control.checkedEdge === 0
-						PropertyChanges {
-							target: checkedOutline
-							anchors.fill: checkedOutline.parent
-							color: "transparent"
-							border.color: flatButton.checkedColor
-						}
-					},
-					State {
-						when: control.checkedEdge == Qt.TopEdge
-						PropertyChanges {
-							target: checkedOutline
-							anchors.bottom: undefined
-							height: control.checkedEdgeWidth
-						}
-					},
-					State {
-						when: control.checkedEdge == Qt.LeftEdge
-						PropertyChanges {
-							target: checkedOutline
-							anchors.right: undefined
-							width: control.checkedEdgeWidth
-						}
-					},
-					State {
-						when: control.checkedEdge == Qt.RightEdge
-						PropertyChanges {
-							target: checkedOutline
-							anchors.left: undefined
-							width: control.checkedEdgeWidth
-						}
-					},
-					State {
-						when: control.checkedEdge == Qt.BottomEdge
-						PropertyChanges {
-							target: checkedOutline
-							anchors.top: undefined
-							height: control.checkedEdgeWidth
-						}
-					}
-				]
 			}
 		}
 	}

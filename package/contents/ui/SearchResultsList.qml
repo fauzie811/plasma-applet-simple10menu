@@ -28,12 +28,7 @@ KickerListView { // RunnerResultsList
 		onRefreshed: {
 			// console.log('search.results.onRefreshed')
 			searchResultsList.model = search.results
-			// if (searchResultsList.verticalLayoutDirection == Qt.BottomToTop) {
-			if (plasmoid.configuration.searchResultsReversed) {
-				searchResultsList.currentIndex = searchResultsList.model.count - 1
-			} else { // TopToBottom (normal)
-				searchResultsList.currentIndex = 0
-			}
+			searchResultsList.currentIndex = 0
 		}
 	}
 
