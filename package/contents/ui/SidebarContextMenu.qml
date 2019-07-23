@@ -12,7 +12,7 @@ SidebarMenu {
 	open: false
 	anchors.left: parent.left
 	anchors.bottom: parent.top
-	implicitWidth: content.implicitWidth
+	// implicitWidth: content.implicitWidth
 	implicitHeight: content.implicitHeight
 	z: 2
 

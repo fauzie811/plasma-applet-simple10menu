@@ -45,23 +45,10 @@ Item {
 
 			SidebarItem {
 				iconName: "open-menu-symbolic"
-				text: i18n("Menu")
+				text: i18n("START")
 				closeOnClick: false
 				onClicked: sidebarMenu.open = !sidebarMenu.open
 			}
-
-			SidebarViewButton {
-				appletIconName: "view-list"
-				text: i18n("Alphabetical")
-				onClicked: appsView.showAppsAlphabetically()
-				checked: searchView.showingAppsAlphabetically
-			}
-//			SidebarViewButton {
-//				appletIconName: "view-list-categorically"
-//				text: i18n("Categories")
-//				onClicked:  appsView.showAppsCategorically()
-//				checked: searchView.showingAppsCategorically
-//			}
 		}
 		ColumnLayout {
 			anchors.bottom: parent.bottom

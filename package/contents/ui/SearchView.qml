@@ -42,22 +42,11 @@ Item {
 	property alias jumpToLetterView: jumpToLetterView
 
 	readonly property bool showingAppList: stackView.currentItem == appsView || stackView.currentItem == jumpToLetterView
-	readonly property bool showingAppsAlphabetically: config.showSearch && appsModel.order == "alphabetical" && showingAppList
-	readonly property bool showingAppsCategorically: config.showSearch && appsModel.order == "categories" && showingAppList
 
 	property bool searchOnTop: false
 
 	function showDefaultView() {
-		var defView = plasmoid.configuration.defaultAppListView
-		if (defView == 'Alphabetical') {
-			appsView.showAppsAlphabetically()
-		} else if (defView == 'Categories') {
-			appsView.showAppsCategorically()
-		} else if (defView == 'JumpToLetter') {
-			jumpToLetterView.showLetters()
-		} else if (defView == 'JumpToCategory') {
-			jumpToLetterView.showCategories()
-		}
+		appsView.show()
 	}
 
 	function showSearchView() {
@@ -106,9 +95,8 @@ Item {
 					if (search.query.length > 0 && stackView.currentItem != searchResultsView) {
 						stackView.push(searchResultsView, true)
 					} else if (search.query.length == 0 && stackView.currentItem == searchResultsView) {
-						appsView.showAppsAlphabetically()
+						appsView.show()
 					}
-					searchResultsView.filterViewOpen = false
 				}
 			}
 
@@ -122,23 +110,12 @@ Item {
 				if (stackView.currentItem != searchResultsView) {
 					stackView.push(searchResultsView, true)
 				}
-				search.applyDefaultFilters()
 			}
 		}
 		
 		AppsView {
 			id: appsView
 			visible: false
-
-			function showAppsAlphabetically() {
-				appsModel.order = "alphabetical"
-				show()
-			}
-
-			function showAppsCategorically() {
-				appsModel.order = "categories"
-				show()
-			}
 
 			function show(animation) {
 				config.showSearch = true
@@ -156,16 +133,6 @@ Item {
 		JumpToLetterView {
 			id: jumpToLetterView
 			visible: false
-
-			function showLetters() {
-				appsModel.order = "alphabetical"
-				show()
-			}
-
-			function showCategories() {
-				appsModel.order = "categories"
-				show()
-			}
 
 			function show() {
 				config.showSearch = true

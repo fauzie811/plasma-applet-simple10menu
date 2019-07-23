@@ -42,8 +42,8 @@ Item {
 	}
 	Rectangle {
 		id: leftShadow
-		anchors.bottom: parent.top - roundShadowHack
-		anchors.left: parent.left - roundShadowHack
+		anchors.bottom: parent.top
+		anchors.left: parent.left
 		height: dropShadowSize
 		width: parent.height + roundShadowHack
 

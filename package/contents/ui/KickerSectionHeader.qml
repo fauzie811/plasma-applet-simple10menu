@@ -35,11 +35,7 @@ MouseArea {
 	hoverEnabled: true
 	onClicked: {
 		if (enableJumpToSection) {
-			if (appsModel.order == "alphabetical") {
-				jumpToLetterView.show()
-			} else { // appsModel.order = "categories"
-				jumpToLetterView.show()
-			}
+			jumpToLetterView.show()
 		}
 	}
 }

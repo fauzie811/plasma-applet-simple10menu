@@ -14,11 +14,6 @@ ColumnLayout {
 	ConfigBase64JsonString {
 		id: exportData
 		Layout.fillHeight: true
-
-		property var ignoredKeys: [
-			'searchResultsReversed',
-			'searchResultsCustomSort',
-		]
 		
 		defaultValue: {
 			var data = {}

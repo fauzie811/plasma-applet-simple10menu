@@ -10,8 +10,6 @@ GridView {
 	// Layout.fillHeight: true
 	anchors.centerIn: parent
 
-	property bool squareView: false
-
 	Connections {
 		target: appsModel.allAppsModel
 		onRefreshed: jumpToLetterView.update()
@@ -24,21 +22,9 @@ GridView {
 	property var allSections: []
 	model: allSections
 
-	property int buttonSize: {
-		if (squareView) {
-			return 48 * units.devicePixelRatio
-		} else {
-			return 36 * units.devicePixelRatio
-		}
-	}
+	property int buttonSize: 48 * units.devicePixelRatio
 
-	cellWidth: {
-		if (squareView) {
-			return buttonSize
-		} else {
-			return width
-		}
-	}
+	cellWidth: buttonSize
 	cellHeight: buttonSize
 
 	delegate: AppToolButton {
@@ -51,25 +37,19 @@ GridView {
 
 		enabled: availableSections.indexOf(section) >= 0
 
-		font.pixelSize: jumpToLetterView.squareView ? 20 : theme.defaultFont.pixelSize
+		font.pixelSize: 20
 
 		iconSource: {
 			if (isRecentApps) {
 				return 'view-history'
-			} else if (jumpToLetterView.squareView) {
-				return ''
 			} else {
-				return sectionIcon
+				return ''
 			}
 		}
 		text: {
 			if (isRecentApps) {
-				if (jumpToLetterView.squareView) {
-					return  '' // Use '◷' icon
-				} else {
-					return appsModel.recentAppsSectionLabel
-				}
-			} else if (jumpToLetterView.squareView && section == '0-9') {
+				return  '' // Use '◷' icon
+			} else if (section == '0-9') {
 				return '#'
 			} else {
 				return section

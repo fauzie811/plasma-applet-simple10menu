@@ -21,9 +21,6 @@ FlatButton {
 	property bool closeOnClick: true
 	property Item submenu: null
 	readonly property bool submenuOpen: submenu ? submenu.open : false
-	
-	property string svgIconName: ""
-	readonly property string svgIconFilename: svgIconName ? plasmoid.file("", "icons/" + svgIconName + ".svg") : ""
 
 	onClicked: {
 		if (sidebarMenu && sidebarMenu.open && closeOnClick) {
@@ -32,21 +29,6 @@ FlatButton {
 		if (submenu) {
 			submenu.open = !submenu.open
 		}
-	}
-	
-	PlasmaCore.SvgItem {
-		id: svgIcon
-		visible: !!sidebarItem.svgIconName
-
-		svg: PlasmaCore.Svg {
-			imagePath: sidebarItem.svgIconFilename
-		}
-
-		// From FlatButton.qml, modifed so icon is also 16px
-		property int iconSize: units.roundToIconSize(config.flatButtonIconSize)
-		width: iconSize
-		height: iconSize
-		anchors.centerIn: parent
 	}
 
 	QQC2.ToolTip {

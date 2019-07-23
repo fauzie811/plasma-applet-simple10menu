@@ -11,7 +11,6 @@ ListView {
 	id: listView
 	width: parent.width
 	Layout.fillHeight: true
-	// spacing: units.smallSpacing
 	cacheBuffer: 200 // Don't unload when scrolling (prevent stutter)
 
 	// snapMode: ListView.SnapToItem

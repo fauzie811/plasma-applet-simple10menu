@@ -306,38 +306,6 @@ Item {
 			}
 		}
 
-		property int categoryStartIndex: 2 // Skip Recent Apps, All Apps
-		property int categoryEndIndex: rootModel.count - 1 // Skip Power
-
-		function getCategory(rootIndex) {
-			var modelIndex = rootModel.index(rootIndex, 0)
-			var categoryLabel = rootModel.data(modelIndex, Qt.DisplayRole)
-			var categoryIcon = rootModel.data(modelIndex, Qt.DecorationRole)
-			// console.log('categoryLabel', categoryLabel, categoryIcon)
-			var categoryModel = rootModel.modelForRow(rootIndex)
-			var appList = []
-			if (categoryModel) {
-				parseModel(appList, categoryModel)
-			} else {
-				console.log('allAppsModel.getCategory', rootIndex, categoryModel, 'is null')
-			}
-			
-			for (var i = 0; i < appList.length; i++) {
-				var item = appList[i];
-				item.sectionKey = categoryLabel
-				item.sectionIcon = categoryIcon
-			}
-			return appList
-		}
-		function getAllCategories() {
-			var appList = [];
-			for (var i = categoryStartIndex; i < categoryEndIndex; i++) { // Skip Recent Apps, All Apps, ... and Power
-			// for (var i = 0; i < rootModel.count; i++) {
-				appList = appList.concat(getCategory(i))
-			}
-			return appList
-		}
-
 		function getAllApps() {
 			//--- populate list
 			var appList = [];
@@ -415,12 +383,7 @@ Item {
 			logger.debug("allAppsModel.refresh().star", Date.now())
 			
 			//--- Apps
-			var appList = []
-			if (appsModel.order == "categories") {
-				appList = getAllCategories()
-			} else {
-				appList = getAllApps()
-			}
+			var appList = getAllApps()
 
 			//--- Recent Apps
 			if (plasmoid.configuration.showRecentApps) {

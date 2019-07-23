@@ -10,15 +10,6 @@
 		<entry name="fixedPanelIcon" type="bool">
 			<default>true</default>
 		</entry>
-		<entry name="searchResultsMerged" type="bool">
-			<default>true</default>
-		</entry>
-		<entry name="searchResultsCustomSort" type="bool">
-			<default>false</default>
-		</entry>
-		<entry name="searchResultsReversed" type="bool">
-			<default>false</default>
-		</entry>
 		<entry name="showRecentApps" type="bool">
 			<label>Whether to show the "Recent Applications" category.</label>
 			<default>true</default>
@@ -33,10 +24,6 @@
 		<entry name="sidebarShortcuts" type="StringList">
 			<label>Same as favoriteApps except "xdg:DOCUMENTS", etc are constants to ~/Documents.</label>
 			<default>xdg:DOCUMENTS,xdg:PICTURES,org.kde.dolphin.desktop,systemsettings.desktop</default>
-		</entry>
-		<entry name="defaultAppListView" type="string">
-			<!-- enum: Alphabetical, Categories, JumpToLetter, JumpToCategory -->
-			<default>Alphabetical</default>
 		</entry>
 
 		<!-- Style -->

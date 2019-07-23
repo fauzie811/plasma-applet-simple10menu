@@ -10,19 +10,7 @@ import QtQuick.Controls.Styles.Plasma 2.0 as PlasmaStyles
 
 TextField {
 	id: searchField
-	placeholderText: {
-		if (search.isDefaultFilter) {
-			return i18n("Search")
-		} else if (search.isAppsFilter) {
-			return i18n("Search Apps")
-		} else if (search.isFileFilter) {
-			return i18n("Search Files")
-		} else if (search.isBookmarksFilter) {
-			return i18n("Search Bookmarks")
-		} else {
-			return i18nc("Search [krunnerName, krunnerName, ...], ", "Search %1", search.filters)
-		}
-	}
+	placeholderText: i18n("Search")
 	property int topMargin: 0
 	property int bottomMargin: 0
 
@@ -66,10 +54,6 @@ TextField {
 			event.accepted = true; listView.pageDown()
 		} else if (event.key == Qt.Key_Return) {
 			event.accepted = true; listView.currentItem.trigger()
-		} else if (event.modifiers & Qt.MetaModifier && event.key == Qt.Key_R) {
-			event.accepted = true; search.filters = ['shell']
-		} else if (event.modifiers & Qt.MetaModifier && event.key == Qt.Key_R) {
-			event.accepted = true; search.filters = ['shell']
 		} else if (event.key == Qt.Key_Escape) {
 			plasmoid.expanded = false
 		}

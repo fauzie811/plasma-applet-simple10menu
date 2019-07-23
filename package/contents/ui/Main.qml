@@ -20,9 +20,6 @@ Item {
 
 	SearchModel {
 		id: search
-		Component.onCompleted: {
-			search.applyDefaultFilters()
-		}
 	}
 
 	property alias rootModel: appsModel.rootModel
@@ -124,7 +121,6 @@ Item {
 	onExpandedChanged: {
 		if (expanded) {
 			search.query = ""
-			search.applyDefaultFilters()
 			config.showSearch = false
 			popup.searchView.searchField.forceActiveFocus()
 			popup.searchView.showDefaultView()

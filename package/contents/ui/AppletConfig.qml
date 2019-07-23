@@ -28,22 +28,14 @@ Item {
 	
 	readonly property int menuItemHeight: 32 * units.devicePixelRatio
 	readonly property int menuIconSize: 22 * units.devicePixelRatio
-	
-	readonly property int searchFilterRowHeight: 40 * units.devicePixelRatio
 
 	//--- Colors
 	readonly property color themeButtonBgColor: theme.highlightColor
-	readonly property color menuItemTextColor2: setAlpha(theme.textColor, 0.6)
+	readonly property color menuItemTextColor2: Qt.rgba(theme.textColor.r, theme.textColor.g, theme.textColor.b, 0.6)
 	readonly property color flatButtonBgHoverColor: Qt.rgba(themeButtonBgColor.r, themeButtonBgColor.g, themeButtonBgColor.b, 0.5)
 	readonly property color flatButtonBgColor: Qt.rgba(flatButtonBgHoverColor.r, flatButtonBgHoverColor.g, flatButtonBgHoverColor.b, 0)
 	readonly property color flatButtonBgPressedColor: theme.highlightColor
 	readonly property color flatButtonCheckedColor: theme.highlightColor
-
-	//--- Settings
-	// Search
-	readonly property bool searchResultsMerged: plasmoid.configuration.searchResultsMerged
-	readonly property bool searchResultsCustomSort: plasmoid.configuration.searchResultsCustomSort
-	readonly property int searchResultsDirection: plasmoid.configuration.searchResultsReversed ? ListView.BottomToTop : ListView.TopToBottom
 
 	property var tileColors: {
         "brave-fiombgjlkfpdpkbhfioofeeinbehmajg-Default.desktop": "#103f91",

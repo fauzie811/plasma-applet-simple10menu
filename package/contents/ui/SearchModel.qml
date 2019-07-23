@@ -19,22 +19,10 @@ Item {
 		runnerModel.query = search.query
 	}
 
-	// KRunner runners are defined in /usr/share/kservices5/plasma-runner-*.desktop
-	// To list the runner ids, use:
-	//     find /usr/share/kservices5/ -iname "plasma-runner-*.desktop" -print0 | xargs -0 grep "PluginInfo-Name" | sort
-	property var filters: []
-	onFiltersChanged: {
-		runnerModel.deleteWhenEmpty = !runnerModel.deleteWhenEmpty // runnerModel.clear()
-		runnerModel.runners = filters
-		clearQueryPrefix()
-		runnerModel.query = search.query
-	}
-
 	Kicker.RunnerModel {
 		id: runnerModel
 
 		appletInterface: plasmoid
-		mergeResults: config.searchResultsMerged
 
 		runners: [] // Empty = All runners.
 
@@ -59,35 +47,6 @@ Item {
 
 	SearchResultsModel {
 		id: resultModel
-	}
-
-	property var defaultFilters: [
-		'Dictionary',
-		'services',
-		// 'calculator',
-		'shell',
-		'org.kde.windowedwidgets',
-		'org.kde.datetime',
-		'baloosearch',
-		// 'bookmarks',
-		'locations',
-		'unitconverter',
-	]
-
-	function isFilter(runnerId) {
-		return filters.length == 1 && filters[0] == runnerId
-	}
-	property bool isDefaultFilter: filters == defaultFilters
-	property bool isAppsFilter: isFilter('services')
-	property bool isFileFilter: isFilter('baloosearch')
-	property bool isBookmarksFilter: isFilter('bookmarks')
-
-	function hasFilter(runnerId) {
-		return filters.indexOf(runnerId) >= 0
-	}
-
-	function applyDefaultFilters() {
-		filters = defaultFilters
 	}
 
 	function setQueryPrefix(prefix) {

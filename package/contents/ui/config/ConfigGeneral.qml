@@ -169,18 +169,6 @@ ConfigPage {
 			minimumValue: 0
 		}
 
-		ConfigComboBox {
-			id: defaultAppListViewControl
-			configKey: "defaultAppListView"
-			label: i18n("Default View")
-			model: [
-				{ value: "Alphabetical", text: i18n("Alphabetical") },
-				{ value: "Categories", text: i18n("Categories") },
-				{ value: "JumpToLetter", text: i18n("Jump To Letter") },
-				{ value: "JumpToCategory", text: i18n("Jump To Category") },
-			]
-		}
-
 		RowLayout {
 			ConfigCheckBox {
 				id: showRecentAppsCheckBox
@@ -205,32 +193,6 @@ ConfigPage {
 				]
 			}
 		}
-	}
-
-	ExclusiveGroup { id: searchResultsMergedGroup }
-	ConfigSection {
-		label: i18n("Search Results")
-
-		RadioButton {
-			exclusiveGroup: searchResultsMergedGroup
-			text: i18n("Merged (Application Launcher)")
-			checked: plasmoid.configuration.searchResultsMerged
-			onClicked: {
-				plasmoid.configuration.searchResultsMerged = true
-				plasmoid.configuration.searchResultsCustomSort = false
-			}
-		}
-		RadioButton {
-			exclusiveGroup: searchResultsMergedGroup
-			text: i18n("Split into Categories (Application Menu / Dashboard)")
-			checked: !plasmoid.configuration.searchResultsMerged
-			onClicked: plasmoid.configuration.searchResultsMerged = false
-		}
-		// ConfigCheckBox {
-		// 	enabled: !plasmoid.configuration.searchResultsMerged
-		// 	text: i18n("Custom Sort (Prefer partial matches)")
-		// 	configKey: 'searchResultsCustomSort'
-		// }
 	}
 
 }
