@@ -1,6 +1,14 @@
 # Simple 10 Menu
 
-A menu based on Windows 10's Start Menu.
+A fork of Tiled Menu by Zren with the following changes:
+
+- Removed tiles functionality.
+- Fixed icon sizes (16px for the sidebar, 22px for the apps list).
+- Added square tiles behind the app icons.
+
+## TODOs
+
+- [ ] UI for customizing tile colors.
 
 ## Screenshots
 
