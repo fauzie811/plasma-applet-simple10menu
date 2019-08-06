@@ -6,17 +6,12 @@ import org.kde.draganddrop 2.0 as DragAndDrop
 MouseArea {
 	id: launcherIcon
 
-	readonly property bool inPanel: (plasmoid.location == PlasmaCore.Types.TopEdge
-		|| plasmoid.location == PlasmaCore.Types.RightEdge
-		|| plasmoid.location == PlasmaCore.Types.BottomEdge
-		|| plasmoid.location == PlasmaCore.Types.LeftEdge)
-
 	Layout.minimumWidth: {
 		switch (plasmoid.formFactor) {
 		case PlasmaCore.Types.Vertical:
 			return 0;
 		case PlasmaCore.Types.Horizontal:
-			return height * 1.2;
+			return height * (plasmoid.configuration.widePanelButton ? 1.2 : 1);
 		default:
 			return units.gridUnit * 3;
 		}
@@ -25,28 +20,13 @@ MouseArea {
 	Layout.minimumHeight: {
 		switch (plasmoid.formFactor) {
 		case PlasmaCore.Types.Vertical:
-			return width * 1.2;
+			return width * (plasmoid.configuration.widePanelButton ? 1.2 : 1);
 		case PlasmaCore.Types.Horizontal:
 			return 0;
 		default:
 			return units.gridUnit * 3;
 		}
 	}
-
-	readonly property int maxSize: Math.max(width, height)
-	property int size: {
-		if (inPanel) {
-// 			if (plasmoid.configuration.fixedPanelIcon) {
-// 				return units.iconSizeHints.panel
-// 			} else {
-				return maxSize
-// 			}
-		} else {
-			return -1
-		}
-	}
-	Layout.maximumWidth: size * 1.2
-	Layout.maximumHeight: size * 1.2
 
 	property int iconSize: plasmoid.configuration.fixedPanelIcon ? units.iconSizeHints.panel : Math.min(width, height)
 	property alias iconSource: icon.source

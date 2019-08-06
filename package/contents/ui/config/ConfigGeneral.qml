@@ -60,9 +60,16 @@ ConfigPage {
 			configKey: 'icon'
 			previewIconSize: units.iconSizes.large
 
-			ConfigCheckBox {
-				text: i18n("Fixed Size")
-				configKey: 'fixedPanelIcon'
+			RowLayout {
+				ConfigCheckBox {
+					text: i18n("Fixed Size")
+					configKey: 'fixedPanelIcon'
+				}
+
+				ConfigCheckBox {
+					text: i18n("Wide Button")
+					configKey: 'widePanelButton'
+				}
 			}
 		}
 	}
@@ -70,7 +77,7 @@ ConfigPage {
 	ConfigSection {
 		label: i18n("Sidebar Shortcuts")
 
-		RowLayout {
+		ColumnLayout {
 			ConfigStringList {
 				id: sidebarShortcuts
 				configKey: 'sidebarShortcuts'
@@ -110,12 +117,12 @@ ConfigPage {
 				}
 			}
 
-			ColumnLayout {
-				id: sidebarDefaultsColumn
+			Label {
+				text: i18n("Add Default")
+			}
 
-				Label {
-					text: i18n("Add Default")
-				}
+			RowLayout {
+				id: sidebarDefaultsColumn
 
 				ConfigIconButton {
 					iconName: "folder-documents-symbolic"
@@ -144,7 +151,7 @@ ConfigPage {
 					onClicked: sidebarShortcuts.addUrl('xdg:VIDEOS')
 				}
 				ConfigIconButton {
-					iconName: "folder-open-symbolic"
+					iconName: "system-file-manager-symbolic"
 					text: i18nd("dolphin", "Dolphin")
 					onClicked: sidebarShortcuts.addUrl('org.kde.dolphin.desktop')
 				}
