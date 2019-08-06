@@ -19,50 +19,6 @@ Kicker.FavoritesModel {
 		plasmoid.expanded = false
 	}
 
-	// DescriptionRole        Qt.UserRole + 1
-	// GroupRole              Qt.UserRole + 2
-	// FavoriteIdRole         Qt.UserRole + 3
-	// IsSeparatorRole        Qt.UserRole + 4
-	// IsDropPlaceholderRole  Qt.UserRole + 5
-	// IsParentRole           Qt.UserRole + 6
-	// HasChildrenRole        Qt.UserRole + 7
-	// HasActionListRole      Qt.UserRole + 8
-	// ActionListRole         Qt.UserRole + 9
-	// UrlRole                Qt.UserRole + 10
-	function getApp(url) {
-		for (var i = 0; i < count; i++) {
-			var modelIndex = kickerAppModel.index(i, 0)
-			var favoriteId = kickerAppModel.data(modelIndex, Qt.UserRole + 3)
-			if (favoriteId == url) {
-				var app = {}
-				app.indexInModel = i
-				app.favoriteId = favoriteId
-				app.display = kickerAppModel.data(modelIndex, Qt.DisplayRole)
-				app.decoration = kickerAppModel.data(modelIndex, Qt.DecorationRole)
-				app.description = kickerAppModel.data(modelIndex, Qt.UserRole + 1)
-				app.group = kickerAppModel.data(modelIndex, Qt.UserRole + 2)
-				app.url = kickerAppModel.data(modelIndex, Qt.UserRole + 10)
-
-				// console.log(app, app.display, app.decoration, app.description, app.group, app.favoriteId)
-
-				return app
-			}
-		}
-		console.log('getApp', url, 'no index')
-		return null
-	}
-	function runApp(url) {
-		for (var i = 0; i < count; i++) {
-			var modelIndex = kickerAppModel.index(i, 0)
-			var favoriteId = kickerAppModel.data(modelIndex, Qt.UserRole + 3)
-			if (favoriteId == url) {
-				kickerAppModel.triggerIndex(i)
-				return
-			}
-		}
-		console.log('runApp', url, 'no index')
-	}
-
 	function indexHasActionList(i) {
 		var modelIndex = kickerAppModel.index(i, 0)
 		var hasActionList = kickerAppModel.data(modelIndex, Qt.UserRole + 8)
