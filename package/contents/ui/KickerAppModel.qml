@@ -9,18 +9,14 @@ Kicker.FavoritesModel {
 
 	signal triggerIndex(int index)
 	onTriggerIndex: {
-		var closeRequested = kickerAppModel.trigger(index, "", null)
-		if (closeRequested) {
-			plasmoid.expanded = false
-		}
+		kickerAppModel.trigger(index, "", null)
+		plasmoid.expanded = false
 	}
 
 	signal triggerIndexAction(int index, string actionId, string actionArgument)
 	onTriggerIndexAction: {
-		var closeRequested = kickerAppModel.trigger(index, actionId, actionArgument)
-		if (closeRequested) {
-			plasmoid.expanded = false
-		}
+		kickerAppModel.trigger(index, actionId, actionArgument)
+		plasmoid.expanded = false
 	}
 
 	// DescriptionRole        Qt.UserRole + 1
