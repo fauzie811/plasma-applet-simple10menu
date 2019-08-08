@@ -47,6 +47,9 @@ Item {
 
 	SearchResultsModel {
 		id: resultModel
+		onItemTriggered: {
+			plasmoid.expanded = false
+		}
 	}
 
 	function setQueryPrefix(prefix) {
