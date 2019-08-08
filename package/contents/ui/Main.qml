@@ -130,12 +130,23 @@ Item {
 	// property alias searchResultsView: popup.searchView.searchResultsView
 	// width: popup.width
 	// height: popup.height
+	PlasmaCore.FrameSvgItem {
+		id: dialogFrame
+		imagePath: "dialogs/background"
+		visible: false
+	}
 	Popup {
 		id: popup
-		anchors.fill: parent
+        anchors {
+            fill: parent
+            leftMargin: -dialogFrame.margins.left
+            topMargin: -dialogFrame.margins.top
+            rightMargin: -dialogFrame.margins.right
+            bottomMargin: -dialogFrame.margins.bottom
+        }
 	}
-	Layout.minimumWidth: config.leftSectionWidth
-	Layout.preferredWidth: config.popupWidth
+	Layout.minimumWidth: config.popupWidth - dialogFrame.margins.left - dialogFrame.margins.right
+	Layout.preferredWidth: config.popupWidth - dialogFrame.margins.left - dialogFrame.margins.right
 	Layout.preferredHeight: config.popupHeight
 
 	Layout.minimumHeight: 600 // For quickly testing as a desktop widget
