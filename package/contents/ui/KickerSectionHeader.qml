@@ -16,6 +16,7 @@ MouseArea {
 		id: sectionHeading
 		anchors {
 			left: parent.left
+			leftMargin: 5 * units.devicePixelRatio
 			verticalCenter:  parent.verticalCenter
 		}
 		text: {

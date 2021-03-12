@@ -26,7 +26,7 @@ MouseArea {
 	Rectangle {
 		anchors.fill: parent
 		color: theme.backgroundColor
-		opacity: parent.open ? 1 : 0
+		opacity: search.isSearching || parent.open ? 1 : 0
 	}
 
 	property alias showDropShadow: sidebarMenuShadows.visible

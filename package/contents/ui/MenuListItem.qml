@@ -22,8 +22,10 @@ AppToolButton {
 	property string secondRowText: showItemUrl && model.url ? model.url : modelDescription
 	property bool secondRowVisible: secondRowText
 	property string launcherUrl: model.favoriteId || model.url
+	property string iconName: model.iconName || ''
 	property alias iconSource: itemIcon.source
 	property int iconSize: config.menuIconSize
+	property bool showTiles: true
 
 	function endsWith(s, substr) {
 		return s.indexOf(substr) == s.length - substr.length
@@ -90,7 +92,7 @@ AppToolButton {
 		anchors.left: parent.left
 		anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
-		anchors.leftMargin: 2 * units.devicePixelRatio
+		anchors.leftMargin: 4 * units.devicePixelRatio
 		spacing: 8 * units.devicePixelRatio
 
 		Item {
@@ -101,6 +103,7 @@ AppToolButton {
 				color: config.tileColors[launcherUrl.toString()] || theme.highlightColor
 				implicitHeight: parent.height
 				implicitWidth: parent.width
+				visible: itemDelegate.showTiles
 			}
 
 			PlasmaCore.IconItem {
@@ -108,7 +111,7 @@ AppToolButton {
 				anchors.centerIn: parent
 				implicitHeight: itemDelegate.iconSize
 				implicitWidth: implicitHeight
-				source: itemDelegate.iconInstance
+				source: itemDelegate.iconName || itemDelegate.iconInstance
 			}
 		}
 

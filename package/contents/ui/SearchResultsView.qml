@@ -6,16 +6,18 @@ import QtQuick.Window 2.1
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 
-GridLayout {
+Item {
 	id: searchResultsView
-	rowSpacing: 0
 	property alias listView: searchResultsList
+
+	Rectangle {
+		anchors.fill: parent
+		color: theme.viewBackgroundColor
+	}
 
 	ScrollView {
 		id: searchResultsListScrollView
-		Layout.row: searchView.searchOnTop ? 0 : 2
-		Layout.fillWidth: true
-		Layout.fillHeight: true
+		anchors.fill: parent
 
 		SearchResultsList {
 			id: searchResultsList

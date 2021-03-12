@@ -43,8 +43,6 @@ Item {
 
 	readonly property bool showingAppList: stackView.currentItem == appsView || stackView.currentItem == jumpToLetterView
 
-	property bool searchOnTop: false
-
 	function showDefaultView() {
 		appsView.show()
 	}
@@ -53,37 +51,10 @@ Item {
 		config.showSearch = true
 	}
 
-	states: [
-		State {
-			name: "searchOnTop"
-			when: searchOnTop
-			PropertyChanges {
-				target: stackViewContainer
-				anchors.topMargin: searchField.height
-			}
-			PropertyChanges {
-				target: searchField
-				anchors.top: searchField.parent.top
-			}
-		},
-		State {
-			name: "searchOnBottom"
-			when: !searchOnTop
-			PropertyChanges {
-				target: stackViewContainer
-				anchors.bottomMargin: searchField.height
-			}
-			PropertyChanges {
-				target: searchField
-				anchors.bottom: searchField.parent.bottom
-			}
-		}
-	]
-
-
 	Item {
 		id: stackViewContainer
 		anchors.fill: parent
+		anchors.bottomMargin: searchField.height
 
 		SearchResultsView {
 			id: searchResultsView
@@ -179,6 +150,7 @@ Item {
 		height: text ? config.searchFieldHeight : 0
 		anchors.left: parent.left
 		anchors.right: parent.right
+		anchors.bottom: parent.bottom
 		opacity: text ? 1 : 0
 
 		listView: stackView.currentItem && stackView.currentItem.listView ? stackView.currentItem.listView : []

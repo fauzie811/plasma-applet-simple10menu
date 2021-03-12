@@ -11,6 +11,7 @@ KickerListView { // RunnerResultsList
 
 	model: []
 	delegate: MenuListItem {
+		showTiles: false
 		property var runner: search.runnerModel.modelForRow(model.runnerIndex)
 		iconSource: runner && runner.data(runner.index(model.runnerItemIndex, 0), Qt.DecorationRole)
 	}

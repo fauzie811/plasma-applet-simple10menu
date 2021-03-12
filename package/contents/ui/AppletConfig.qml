@@ -14,12 +14,11 @@ Item {
 	readonly property int flatButtonIconSize: 20 * units.devicePixelRatio
 	readonly property int sidebarWidth: flatButtonSize
 	readonly property int sidebarMinOpenWidth: 200 * units.devicePixelRatio
-	readonly property int sidebarRightMargin: 4 * units.devicePixelRatio
 	readonly property int appListWidth: plasmoid.configuration.appListWidth * units.devicePixelRatio
 
 	property bool showSearch: false
 	readonly property int appAreaWidth: (showSearch ? appListWidth : 0)
-	readonly property int leftSectionWidth: sidebarWidth + sidebarRightMargin + appAreaWidth
+	readonly property int leftSectionWidth: sidebarWidth + appAreaWidth
 
 	readonly property int searchFieldHeight: 32 * units.devicePixelRatio
 
@@ -54,6 +53,7 @@ Item {
         "libreoffice-math.desktop": "#00A500",
         "libreoffice-writer.desktop": "#103f91",
 		"whatsapp-desktop.desktop": "#25d366",
+		"whatsapp.desktop": "#25d366",
         "code.desktop": "#2d2d30",
 	}
 }

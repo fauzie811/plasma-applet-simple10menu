@@ -16,7 +16,7 @@ MouseArea {
 
 		Item {
 			id: sidebarPlaceholder
-			implicitWidth: config.sidebarWidth + config.sidebarRightMargin
+			implicitWidth: config.sidebarWidth
 			Layout.fillHeight: true
 		}
 
